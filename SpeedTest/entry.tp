@@ -1,0 +1,123 @@
+{
+  "sdk": 3,
+  "version": 100,
+  "name": "Speed Test",
+  "id": "SpeedTest",
+  "configuration": {
+    "colorDark": "#f54242",
+    "colorLight": "#f5a442"
+  },
+  "settings": [
+	{
+      "name": "Auto Start",
+      "type": "text",
+      "default": "True",
+      "readOnly": false
+    },
+	{
+      "name": "Auto Start in minutes",
+      "type": "number",
+      "default": "10",
+	  "minValue": 5,
+	  "maxValue": 360,
+      "readOnly": false
+    }],
+  "plugin_start_cmd": "%TP_PLUGIN_FOLDER%SpeedTest\\SpeedTest.exe",
+  "categories": [
+    {
+      "id": "Main",
+      "name": "SpeedTest",
+	  "imagepath": "%TP_PLUGIN_FOLDER%SpeedTest\\icon.png",
+      "actions": [
+	  {
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Actions.TestAgain",
+          "name": "Run the test",
+          "prefix": "SpeedTest",
+          "type": "communicate"
+        }
+	  ],
+      "events": [],
+      "states": [
+        {
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Download.Bits",
+          "type": "text",
+          "desc": "SpeedTest: Download Speed bits/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Download.Bytes",
+          "type": "text",
+          "desc": "SpeedTest: Download Speed bytes/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Download.Kilobits",
+          "type": "text",
+          "desc": "SpeedTest: Download Speed Kbit/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Download.Kilobytes",
+          "type": "text",
+          "desc": "SpeedTest: Download Speed Kb/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Download.Megabits",
+          "type": "text",
+          "desc": "SpeedTest: Download Speed Mbp/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.Upload.Upload.Bits",
+          "type": "text",
+          "desc": "SpeedTest: Upload Speed bits/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Upload.Bytes",
+          "type": "text",
+          "desc": "SpeedTest: Upload Speed bytes/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Upload.Kilobits",
+          "type": "text",
+          "desc": "SpeedTest: Upload Speed Kbit/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Upload.Kilobytes",
+          "type": "text",
+          "desc": "SpeedTest: Upload Speed Kb/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.Upload.Megabits",
+          "type": "text",
+          "desc": "SpeedTest: Upload Speed Mbp/s",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.pings",
+          "type": "text",
+          "desc": "SpeedTest: pings",
+          "default": "0"
+        },
+
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.ISP",
+          "type": "text",
+          "desc": "SpeedTest: ISP",
+          "default": "0"
+        },
+		{
+          "id": "KillerBOSS.TPPlugins.SpeedTest.ImageData",
+          "type": "text",
+          "desc": "SpeedTest: Show full data",
+          "default": "None"
+        }
+      ]
+    }
+  ]
+}
