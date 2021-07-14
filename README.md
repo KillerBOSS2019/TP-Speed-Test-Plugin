@@ -21,7 +21,7 @@ SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://
 ![image](/Images/Install/ImportPlugin.png)
 5. Click `Import plugin-in...` and select the .tpp file you've downloaded in step 2.
 6. You should get a pop-up saying that the import was successful.  
-![image](/Images/InstallImportSuccess.png)
+![image](/Images/Install/ImportSuccess.png)
 7. For best results exit TouchPortal.  
 ![image](/Images/Install/RestartTouchPortal.gif)
 7. Relaunch TouchPortal. When you do you will get a Warning prompt, Just click the Always Trust button.  
