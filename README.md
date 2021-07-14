@@ -1,4 +1,4 @@
-![image](/speedtest.gif)
+![image](/speedtest.gif)  
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/KillerBOSS2019/TP-Speed-Test-Plugin?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/releases)
 [![GitHub all releases](https://img.shields.io/github/downloads/KillerBOSS2019/TP-Steam-Friend-Plugin/total?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/releases)
 [![GitHub issues](https://img.shields.io/github/issues/KillerBOSS2019/TP-Speed-Test-Plugin?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/issues)
@@ -20,9 +20,9 @@ SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://
 4. On the top right click the wrench icon.  
 ![image](/Images/Install/ImportPlugin.png)
 5. Click `Import plugin-in...` and select the .tpp file you've downloaded in step 2.
-6. You should get a pop-up saying that the import was successful.
+6. You should get a pop-up saying that the import was successful.  
 ![image](/Images/InstallImportSuccess.png)
-7. For best results exit TouchPortal.
+7. For best results exit TouchPortal.  
 ![image](/Images/Install/RestartTouchPortal.gif)
 7. Relaunch TouchPortal. When you do you will get a Warning prompt, Just click the Always Trust button.  
 
@@ -42,5 +42,5 @@ Once install it will look like the image below
 ![image](/Images/Demo/ImportConfirm.png)
  6. Click Ok button to close the import confirmation page  
 ![image](/Images/Demo/ImportSucces.png)
- 7. You will now have a new page named steam-friends showing of most fuctions of the plugin.
-*Note: Though the page in touch portal does look like it's not doing anything it is. You will see it update with infomation once you are using the app on a device.*  
+ 7. You will now have a new page named SpeedTest showing of most functions of the plugin.
+*Note: Though the page in touch portal does look like it's not doing anything it is. You will see it update with information once you are using the app on a device.*  
