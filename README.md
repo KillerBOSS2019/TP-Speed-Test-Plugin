@@ -29,6 +29,7 @@ SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://
 # Demo
 A Demo page that shows off some of the features and functionality of TouchPortal Plugin can be found [Here](https://github.com/cj2tech/TP-Steam-Friend-Plugin/blob/main/Demo/steam-friends.tpz).
 Once install it will look like the image below
+
 <br>
 ![image](/Images/Demo/Demo.png)
 
