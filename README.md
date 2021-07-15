@@ -29,13 +29,14 @@ SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://
 # Demo
 A Demo page that shows off some of the features and functionality of TouchPortal Plugin can be found [Here](https://github.com/cj2tech/TP-Steam-Friend-Plugin/blob/main/Demo/steam-friends.tpz).
 Once install it will look like the image below
+<br>
 ![image](/Images/Demo/Demo.png)
 
 ## Import Demo Page
 
  1. Download demo page from [Here](/Demo/SpeedTest.tpz).  
  2. Click "Manage Page..." button on Touch Portal Main Menu. 
-![image](/Images/Demo/ImportDemo.png)
+<br>![image](/Images/Demo/ImportDemo.png)
  3. Click "Import Page"
  4. Find the downloaded file SpeedTest.tpz and click open  
  5. Click Yes when this pop-up appears  
