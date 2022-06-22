@@ -1,48 +1,89 @@
-![image](/speedtest.gif)  
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/KillerBOSS2019/TP-Speed-Test-Plugin?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/releases)
-[![GitHub all releases](https://img.shields.io/github/downloads/KillerBOSS2019/TP-Steam-Friend-Plugin/total?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/releases)
-[![GitHub issues](https://img.shields.io/github/issues/KillerBOSS2019/TP-Speed-Test-Plugin?style=for-the-badge)](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/issues)
-# TP-Speed-Test-Plugin
+
+# SpeedTest
+
+
+![Downloads](https://img.shields.io/github/downloads/KillerBOSS2019/TP-Speed-Test-Plugin/total) 
+![Forks](https://img.shields.io/github/forks/KillerBOSS2019/TP-Speed-Test-Plugin) 
+![Stars](https://img.shields.io/github/stars/KillerBOSS2019/TP-Speed-Test-Plugin) 
+![License](https://img.shields.io/github/license/KillerBOSS2019/TP-Speed-Test-Plugin)
+
+- [SpeedTest](#SpeedTest)
+  - [Description](#description)
+  - [Settings Overview](#Settings-Overview)
+  - [Features](#Features)
+    - [Actions](#actions)
+    - [States](#states)
+  - [Installation Guide](#installation)
+  - [Bugs and Support](#bugs-and-suggestion)
+  - [License](#license)
+  
+# Description
+
 SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://www.touch-portal.com/)
 
-# Actions & Triggers
+This documentation generated for SpeedTest V2000 with [Python TouchPortal SDK](https://github.com/KillerBOSS2019/TouchPortal-API).
+
+## Settings Overview
+### Auto Start
+| Read-only | Type | Default Value | Max. Value |
+| --- | --- | --- | --- |
+| False | text | 0 | 360 |
+
+Automatically start speedtest in minutes If entered number is greater than 5.
+
+### Check Update
+| Read-only | Type | Default Value |
+| --- | --- | --- |
+| False | text | True |
+
+If I release any new update you will receive a TouchPortal notification about it.
+
+
+# Features
 
 ## Actions
-![image](Images/Actions%20and%20Triggers/Actions.png)
+<details open><summary><b>Category:</b> main <ins>(Click to expand)</ins></summary><table>
+<tr valign='buttom'><th>Action Name</th><th>Description</th><th>Format</th><th nowrap>Data<br/><div align=left><sub>choices/default (in bold)</th><th>On<br/>Hold</sub></div></th></tr>
+<tr valign='top'><td>Start speedtest</td><td>Starts speedtest process.</td><td>Start speedtest using server [1]</td><td><ol start=1><li>Type: choice &nbsp; 
+Default: <b>Best server (based on ping)</b></li>
+</ol></td>
+<td align=center>No</td>
+</tr></table></details>
+<br>
 
-## Triggers
-![image](Images/Actions%20and%20Triggers/Triggers.png)
+## States
+<details open><summary><b>Base Id:</b> com.KillerBOSS.TPPlugins.TPSpeedTest <b>Category:</b> main <ins>(Click to expand)</ins></summary>
 
-# Installation
-1. Go to <a target="_blank" href="https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/releases/" > Releases </a> on the main page of this github.
-2. Make sure download Win-SpeedTest.tpp. *Note: Currently This Plugin is ONLY for Windows Mac will have this later.*  
-3. After you have the file head over to TouchPortal app on your PC.
-4. On the top right click the wrench icon.  
-![image](/Images/Install/ImportPlugin.png)
-5. Click `Import plugin-in...` and select the .tpp file you've downloaded in step 2.
-6. You should get a pop-up saying that the import was successful.  
-![image](/Images/Install/ImportSuccess.png)
-7. For best results exit TouchPortal.  
-![image](/Images/Install/RestartTouchPortal.gif)
-7. Relaunch TouchPortal. When you do you will get a Warning prompt, Just click the Always Trust button.  
 
-# Demo
-A Demo page that shows off some of the features and functionality of TouchPortal Plugin can be found [Here](https://github.com/cj2tech/TP-Steam-Friend-Plugin/blob/main/Demo/steam-friends.tpz).
-Once install it will look like the image below
+| Id | Description | DefaultValue | parentGroup |
+| --- | --- | --- | --- |
+| .st.result.download.bits | Download speed in (bits) |  | Download speed result |
+| .st.result.download.bytes | Download speed in (bytes) |  | Download speed result |
+| .st.result.download.kilobits | Download speed in (kilobits) |  | Download speed result |
+| .st.result.download.kilobytes | Download speed in (kilobytes) |  | Download speed result |
+| .st.result.download.megabits | Download speed in (megabits) |  | Download speed result |
+| .st.result.download.megabytes | Download speed in (megabytes) |  | Download speed result |
+| .st.result.upload.bits | Upload speed in (bits) |  | Upload speed result |
+| .st.result.upload.bytes | Upload speed in (bytes) |  | Upload speed result |
+| .st.result.upload.kilobits | Upload speed in (kilobits) |  | Upload speed result |
+| .st.result.upload.kilobytes | Upload speed in (kilobytes) |  | Upload speed result |
+| .st.result.upload.megabits | Upload speed in (megabits) |  | Upload speed result |
+| .st.result.upload.megabytes | Upload speed in (megabytes) |  | Upload speed result |
+| .st.result.ping | Ping |  |   |
+| .st.result.isp | ISP |  |   |
+| .st.result.image | Image |  |   |
+</details>
 
 <br>
-![image](/Images/Demo/Demo.png)
 
-## Import Demo Page
+# Installation
+1. Download latest version of plugin for your system.
+2. Import downloaded tpp by click the gear button next to email/notification icon.
+3. If this is first plugin, you will need to restart TouchPortal for it to work.
+# Bugs and Suggestion
+Open an [issue](https://github.com/KillerBOSS2019/TP-Speed-Test-Plugin/issues) or join offical [TouchPortal Discord](https://discord.gg/MgxQb8r) for support.
 
- 1. Download demo page from [Here](/Demo/SpeedTest.tpz).  
- 2. Click "Manage Page..." button on Touch Portal Main Menu. 
-<br>![image](/Images/Demo/ImportDemo.png)
- 3. Click "Import Page"
- 4. Find the downloaded file SpeedTest.tpz and click open  
- 5. Click Yes when this pop-up appears  
-![image](/Images/Demo/ImportConfirm.png)
- 6. Click Ok button to close the import confirmation page  
-![image](/Images/Demo/ImportSucces.png)
- 7. You will now have a new page named SpeedTest showing of most functions of the plugin.
-*Note: Though the page in touch portal does look like it's not doing anything it is. You will see it update with information once you are using the app on a device.*  
+
+# License
+This plugin is licensed under the [GPL 3.0 License] - see the [LICENSE](LICENSE) file for more information.
+
