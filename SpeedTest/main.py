@@ -108,7 +108,9 @@ def startSpeedTest(server):
     serverlist = getServers()
 
     if not TPClient.choiceUpdateList[TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"]] == list(serverlist.keys()):
-        TPClient.stateUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], list(serverlist.keys()))
+        serverchoices = ["Best server (based on ping)"]
+        serverchoices.extend(list(serverlist.keys()))
+        TPClient.stateUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
 
     if server == "Best server (based on ping)":
         sptest.get_best_server()
@@ -155,7 +157,9 @@ def onStart(data):
     settingsHandler(data.get('settings', []))
 
     servers = getServers()
-    TPClient.choiceUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], list(servers.keys()))
+    serverchoices = ["Best server (based on ping)"]
+    serverchoices.extend(list(servers.keys()))
+    TPClient.choiceUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
 
     # checking for update
     github_check = Tools.updateCheck("KillerBOSS2019", "TP-Speed-Test-Plugin")
