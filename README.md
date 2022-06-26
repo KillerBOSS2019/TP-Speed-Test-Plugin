@@ -1,14 +1,12 @@
 
 # SpeedTest
-
-
 ![Downloads](https://img.shields.io/github/downloads/KillerBOSS2019/TP-Speed-Test-Plugin/total) 
 ![Forks](https://img.shields.io/github/forks/KillerBOSS2019/TP-Speed-Test-Plugin) 
 ![Stars](https://img.shields.io/github/stars/KillerBOSS2019/TP-Speed-Test-Plugin) 
 ![License](https://img.shields.io/github/license/KillerBOSS2019/TP-Speed-Test-Plugin)
 
 - [SpeedTest](#SpeedTest)
-  - [Description](#description)
+  - [Description](#description) 
   - [Settings Overview](#Settings-Overview)
   - [Features](#Features)
     - [Actions](#actions)
@@ -24,14 +22,12 @@ SpeedTest Plugin using https://www.speedtest.net/ API for [TouchPortal](https://
 This documentation generated for SpeedTest V2000 with [Python TouchPortal SDK](https://github.com/KillerBOSS2019/TouchPortal-API).
 
 ## Settings Overview
-### Auto Start
 | Read-only | Type | Default Value | Max. Value |
 | --- | --- | --- | --- |
 | False | text | 0 | 360 |
 
-Automatically start speedtest in minutes If entered number is greater than 5.
+In order to enable automatically test you will need to enter a number that's equal or greater than 5. Otherwise It means it's disabled.
 
-### Check Update
 | Read-only | Type | Default Value |
 | --- | --- | --- |
 | False | text | True |

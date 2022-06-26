@@ -1,6 +1,6 @@
 from TouchPortalAPI.tppbuild import *
 
-__version__ = 2000
+__version__ = 2001
 PLUGIN_ID = "com.KillerBOSS.TPPlugins.TPSpeedTest"
 
 TPSDK_DEFAULT_VERSION = 6
@@ -14,8 +14,8 @@ TP_PLUGIN_INFO = {
     'plugin_start_cmd_linux': "sh %TP_PLUGIN_FOLDER%TPSpeedTest\\start.sh",
     'plugin_start_cmd_mac': "sh %TP_PLUGIN_FOLDER%TPSpeedTest\\start.sh",
     'configuration': {
-        'colorDark': '#000000',
-        'colorLight': '#FFFFFF',
+        'colorDark': '#0d162c',
+        'colorLight': '#4b84f3',
     },
     "doc": {
         "repository": "KillerBOSS2019:TP-Speed-Test-Plugin",
@@ -32,7 +32,7 @@ TP_PLUGIN_SETTINGS = {
         "maxValue": 360,
         "default": "0",
         "readOnly": False,
-        "doc": "Automatically start speedtest in minutes If entered number is greater than 5."
+        "doc": "In order to enable automatically test you will need to enter a number that's equal or greater than 5. Otherwise It means it's disabled."
     },
     "Check Update": {
         "name": "Auto Check Update",

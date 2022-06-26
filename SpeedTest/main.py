@@ -1,17 +1,3 @@
-# import speedtest
-
-# sptest = speedtest.Speedtest()
-
-# servers = sorted(sptest.get_servers().items())
-
-# for _, servers in servers:
-#     for server in servers:
-#         line = ('%(id)5s) %(sponsor)s (%(name)s, %(country)s) '
-#                 '[%(d)0.2f km]' % server)
-#         print(line)
-
-# print(sptest.config)
-
 import subprocess
 import sys
 from argparse import ArgumentParser
@@ -123,6 +109,7 @@ def startSpeedTest(server):
     sptest.results.share()
 
     result = sptest.results.dict()
+    g_log.debug(result)
     updateResult(result)
 
 def speedTestTracker():
