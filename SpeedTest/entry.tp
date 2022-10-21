@@ -1,20 +1,20 @@
 {
   "sdk": 6,
-  "version": 2000,
+  "version": 2002,
   "name": "SpeedTest",
   "id": "com.KillerBOSS.TPPlugins.TPSpeedTest",
   "configuration": {
-    "colorDark": "#66a3ff",
-    "colorLight": "#80b3ff"
+    "colorDark": "#0d162c",
+    "colorLight": "#4b84f3"
   },
-  "plugin_start_cmd_windows": "%TP_PLUGIN_FOLDER%TouchPortalSpeedTest//SpeedTest.exe",
-  "plugin_start_cmd_linux": "sh %TP_PLUGIN_FOLDER%TouchPortalSpeedTest//start.sh",
-  "plugin_start_cmd_mac": "sh %TP_PLUGIN_FOLDER%TouchPortalSpeedTest//start.sh",
+  "plugin_start_cmd_windows": "%TP_PLUGIN_FOLDER%TPSpeedTest\\TPSpeedtest.exe",
+  "plugin_start_cmd_linux": "sh %TP_PLUGIN_FOLDER%TPSpeedTest\\start.sh",
+  "plugin_start_cmd_mac": "sh %TP_PLUGIN_FOLDER%TPSpeedTest\\start.sh",
   "categories": [
     {
       "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.main",
       "name": "Touch Portal SpeedTest",
-      "imagepath": "%TP_PLUGIN_FOLDER%TouchPortalSpeedTest//icon.png",
+      "imagepath": "%TP_PLUGIN_FOLDER%TPSpeedTest\\icon.png",
       "actions": [
         {
           "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.act.startTest",
@@ -36,90 +36,6 @@
       ],
       "states": [
         {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.bits",
-          "type": "text",
-          "desc": "Download speed in (bits)",
-          "parentGroup": "Download speed result",
-          "default": ""
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.bytes",
-          "type": "text",
-          "desc": "Download speed in (bytes)",
-          "parentGroup": "Download speed result",
-          "default": ""
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.kilobits",
-          "type": "text",
-          "desc": "Download speed in (kilobits)",
-          "default": "",
-          "parentGroup": "Download speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.kilobytes",
-          "type": "text",
-          "desc": "Download speed in (kilobytes)",
-          "default": "",
-          "parentGroup": "Download speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.megabits",
-          "type": "text",
-          "desc": "Download speed in (megabits)",
-          "default": "",
-          "parentGroup": "Download speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.megabytes",
-          "type": "text",
-          "desc": "Download speed in (megabytes)",
-          "default": "",
-          "parentGroup": "Download speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.bits",
-          "type": "text",
-          "desc": "Upload speed in (bits)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.bytes",
-          "type": "text",
-          "desc": "Upload speed in (bytes)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.kilobits",
-          "type": "text",
-          "desc": "Upload speed in (kilobits)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.kilobytes",
-          "type": "text",
-          "desc": "Upload speed in (kilobytes)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.megabits",
-          "type": "text",
-          "desc": "Upload speed in (megabits)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
-          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.megabytes",
-          "type": "text",
-          "desc": "Upload speed in (megabytes)",
-          "default": "",
-          "parentGroup": "Upload speed result"
-        },
-        {
           "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.ping",
           "type": "text",
           "desc": "Ping",
@@ -135,6 +51,108 @@
           "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.image",
           "type": "text",
           "desc": "Image",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.status",
+          "type": "text",
+          "desc": "Plugin Status",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.server",
+          "type": "text",
+          "desc": "Speed Test Server",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.download",
+      "name": "Download Speed Results",
+      "actions": [],
+      "states": [
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.bits",
+          "type": "text",
+          "desc": "Download speed in (bits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.bytes",
+          "type": "text",
+          "desc": "Download speed in (bytes)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.kilobits",
+          "type": "text",
+          "desc": "Download speed in (kilobits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.kilobytes",
+          "type": "text",
+          "desc": "Download speed in (kilobytes)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.megabits",
+          "type": "text",
+          "desc": "Download speed in (megabits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.download.megabytes",
+          "type": "text",
+          "desc": "Download speed in (megabytes)",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.upload",
+      "name": "Upload Speed Results",
+      "actions": [],
+      "states": [
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.bits",
+          "type": "text",
+          "desc": "Upload speed in (bits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.bytes",
+          "type": "text",
+          "desc": "Upload speed in (bytes)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.kilobits",
+          "type": "text",
+          "desc": "Upload speed in (kilobits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.kilobytes",
+          "type": "text",
+          "desc": "Upload speed in (kilobytes)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.megabits",
+          "type": "text",
+          "desc": "Upload speed in (megabits)",
+          "default": ""
+        },
+        {
+          "id": "com.KillerBOSS.TPPlugins.TPSpeedTest.st.result.upload.megabytes",
+          "type": "text",
+          "desc": "Upload speed in (megabytes)",
           "default": ""
         }
       ],
