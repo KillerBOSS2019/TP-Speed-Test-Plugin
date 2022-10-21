@@ -1,6 +1,6 @@
 from TouchPortalAPI.tppbuild import *
 
-__version__ = 2001
+__version__ = 2002
 PLUGIN_ID = "com.KillerBOSS.TPPlugins.TPSpeedTest"
 
 TPSDK_DEFAULT_VERSION = 6
@@ -48,14 +48,22 @@ TP_PLUGIN_CATEGORIES = {
         "id": PLUGIN_ID + ".main",
         "name": "Touch Portal SpeedTest",
         "imagepath": "%TP_PLUGIN_FOLDER%TPSpeedTest\\icon.png",
+    },
+    "download": {
+        "id": PLUGIN_ID + ".download",
+        "name": "Download Speed Results"
+    },
+    "upload": {
+        "id": PLUGIN_ID + ".upload",
+        "name": "Upload Speed Results"
     }
 }
 
 TP_PLUGIN_ACTIONS = {
-    "Start speedtest": {
+    "Start Speedtest": {
         "category": "main",
         "id": PLUGIN_ID + ".act.startTest",
-        "name": "Start speedtest",
+        "name": "Start Speedtest",
         "prefix": TP_PLUGIN_CATEGORIES["main"]["name"],
         "type": "communicate",
         "tryInline": True,
@@ -75,100 +83,88 @@ TP_PLUGIN_ACTIONS = {
 
 TP_PLUGIN_STATES = {
     "result Download bits": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.bits",
         "type": "text",
         "desc": "Download speed in (bits)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     "result Download bytes": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.bytes",
         "type": "text",
         "desc": "Download speed in (bytes)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     "result Download kilobits": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.kilobits",
         "type": "text",
         "desc": "Download speed in (kilobits)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     "result Download kilobytes": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.kilobytes",
         "type": "text",
         "desc": "Download speed in (kilobytes)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     "result Download megabits": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.megabits",
         "type": "text",
         "desc": "Download speed in (megabits)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     "result Download megabytes": {
-        "category": "main",
+        "category": "download",
         "id": PLUGIN_ID + ".st.result.download.megabytes",
         "type": "text",
         "desc": "Download speed in (megabytes)",
-        "parentGroup": "Download speed result",
         "default": "",
     },
     
     "result Upload bits": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.bits",
         "type": "text",
         "desc": "Upload speed in (bits)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
     "result Upload bytes": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.bytes",
         "type": "text",
         "desc": "Upload speed in (bytes)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
     "result Upload kilobits": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.kilobits",
         "type": "text",
         "desc": "Upload speed in (kilobits)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
     "result Upload kilobytes": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.kilobytes",
         "type": "text",
         "desc": "Upload speed in (kilobytes)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
     "result Upload megabits": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.megabits",
         "type": "text",
         "desc": "Upload speed in (megabits)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
     "result Upload megabytes": {
-        "category": "main",
+        "category": "upload",
         "id": PLUGIN_ID + ".st.result.upload.megabytes",
         "type": "text",
         "desc": "Upload speed in (megabytes)",
-        "parentGroup": "Upload speed result",
         "default": "",
     },
 
@@ -194,6 +190,22 @@ TP_PLUGIN_STATES = {
         "name": "Image",
         "type": "text",
         "desc": "Image",
+        "default": "",
+    },
+    "Speed Test Status": {
+        "category": "main",
+        "id": PLUGIN_ID + ".st.status",
+        "name": "Speed Test Status",
+        "type": "text",
+        "desc": "Plugin Status",
+        "default": "",
+    },
+    "Speed Test Server": {
+        "category": "main",
+        "id": PLUGIN_ID + ".st.server",
+        "name": "Speed Test Server",
+        "type": "text",
+        "desc": "Speed Test Server",
         "default": "",
     }
 }
