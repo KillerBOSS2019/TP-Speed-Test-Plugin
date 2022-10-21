@@ -17,31 +17,96 @@ running = True
 TPClient = TouchPortalAPI.Client(TP_PLUGIN_INFO["id"])
 g_log = Logger(TP_PLUGIN_INFO["id"])
 
-def updateResult(result):
+
+
+def updateResult(result, kind= None):
+    if kind == "Download":
+        downloadSpeedState = [
+            {
+                "id": TP_PLUGIN_STATES["result Download bits"]["id"],
+                "value": str(round(result['download'], 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Download bytes"]["id"],
+                "value": str(round(result['download'] / 8, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Download kilobits"]["id"],
+                "value": str(round(result['download'] / 1000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Download kilobytes"]["id"],
+                "value": str(round(result['download'] / 8000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Download megabits"]["id"],
+                "value": str(round(result['download'] / 1000000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Download megabytes"]["id"],
+                "value": str(round(result['download'] / 8000000, 2))
+            }
+        ]
+        TPClient.stateUpdateMany(downloadSpeedState)
+        
+    if kind == "Upload":
+        uploadSpeedState = [
+            {
+                "id": TP_PLUGIN_STATES["result Upload bits"]["id"],
+                "value": str(round(result['upload'], 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Upload bytes"]["id"],
+                "value": str(round(result['upload'] / 8, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Upload kilobits"]["id"],
+                "value": str(round(result['upload'] / 1000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Upload kilobytes"]["id"],
+                "value": str(round(result['upload'] / 8000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Upload megabits"]["id"],
+                "value": str(round(result['upload'] / 1000000, 2))
+            },
+            {
+                "id": TP_PLUGIN_STATES["result Upload megabytes"]["id"],
+                "value": str(round(result['upload'] / 8000000, 2))
+            }
+        ]
+        TPClient.stateUpdateMany(uploadSpeedState)
+    if kind == "Completed":
+        TPClient.stateUpdate(TP_PLUGIN_STATES["result Ping"]["id"], str(round(result['ping'], 0)))
+        TPClient.stateUpdate(TP_PLUGIN_STATES["result ISP"]["id"], result['client']['isp'])
+        TPClient.stateUpdate(TP_PLUGIN_STATES["result Image"]["id"], Tools.convertImage_to_base64(result["share"], type="Web"))
+
+def clear_results():
     downloadSpeedState = [
         {
             "id": TP_PLUGIN_STATES["result Download bits"]["id"],
-            "value": str(round(result['download'], 2))
+            "value":"--"
         },
         {
             "id": TP_PLUGIN_STATES["result Download bytes"]["id"],
-            "value": str(round(result['download'] / 8, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Download kilobits"]["id"],
-            "value": str(round(result['download'] / 1000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Download kilobytes"]["id"],
-            "value": str(round(result['download'] / 8000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Download megabits"]["id"],
-            "value": str(round(result['download'] / 1000000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Download megabytes"]["id"],
-            "value": str(round(result['download'] / 8000000, 2))
+            "value": "--"
         }
     ]
     TPClient.stateUpdateMany(downloadSpeedState)
@@ -49,35 +114,37 @@ def updateResult(result):
     uploadSpeedState = [
         {
             "id": TP_PLUGIN_STATES["result Upload bits"]["id"],
-            "value": str(round(result['upload'], 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Upload bytes"]["id"],
-            "value": str(round(result['upload'] / 8, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Upload kilobits"]["id"],
-            "value": str(round(result['upload'] / 1000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Upload kilobytes"]["id"],
-            "value": str(round(result['upload'] / 8000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Upload megabits"]["id"],
-            "value": str(round(result['upload'] / 1000000, 2))
+            "value": "--"
         },
         {
             "id": TP_PLUGIN_STATES["result Upload megabytes"]["id"],
-            "value": str(round(result['upload'] / 8000000, 2))
+            "value": "--"
         }
     ]
     TPClient.stateUpdateMany(uploadSpeedState)
 
-    TPClient.stateUpdate(TP_PLUGIN_STATES["result Ping"]["id"], str(round(result['ping'], 0)))
-    TPClient.stateUpdate(TP_PLUGIN_STATES["result ISP"]["id"], result['client']['isp'])
-    TPClient.stateUpdate(TP_PLUGIN_STATES["result Image"]["id"], Tools.convertImage_to_base64(result["share"], type="Web"))
-
+    TPClient.stateUpdate(TP_PLUGIN_STATES["result Ping"]["id"], "")
+    TPClient.stateUpdate(TP_PLUGIN_STATES["result ISP"]["id"], "")
+    TPClient.stateUpdate(TP_PLUGIN_STATES["result Image"]["id"], "")
+    TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Server"]["id"], "")
+    TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Status"]["id"], "Starting")
+        
 def getServers():
     sptest = speedtest.Speedtest()
     servers = sorted(sptest.get_servers().items())
@@ -92,28 +159,45 @@ def getServers():
 def startSpeedTest(server):
     sptest = speedtest.Speedtest()
     serverlist = getServers()
-
+    
+    ### Clear Previous Results
+    clear_results()
+    
     if not TPClient.choiceUpdateList[TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"]] == list(serverlist.keys()):
         serverchoices = ["Best server (based on ping)"]
         serverchoices.extend(list(serverlist.keys()))
         TPClient.stateUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
 
     if server == "Best server (based on ping)":
-        sptest.get_best_server()
+        best_server = sptest.get_best_server()
+        TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Server"]["id"], best_server['name'])
     else:
         sptest.get_servers([serverlist[server]])
+        TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Server"]["id"], [serverlist[server]])
+        
     g_log.debug("start to test")
 
+    ### Downloading
+    TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Status"]["id"], "Downloading")
     sptest.download()
+    updateResult({"download": sptest.results.download}, kind = "Download")
+    
+    ### Uploading 
+    TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Status"]["id"], "Uploading")
     sptest.upload()
+    updateResult({"upload": sptest.results.upload}, kind = "Upload")
+    
     sptest.results.share()
-
+    
+    ### Completed
     result = sptest.results.dict()
+    TPClient.stateUpdate(TP_PLUGIN_STATES["Speed Test Status"]["id"], "Completed")
     g_log.debug(result)
-    updateResult(result)
+    updateResult(result, kind="Completed")
 
 def speedTestTracker():
     while running:
+        sleep(0.5)
         if autoStartTest >= 5:
             g_log.info(f"Waiting {autoStartTest*60} seconds before starting speedtest.")
             sleep(60*autoStartTest) # convert input to minutes
@@ -196,6 +280,7 @@ def onShutdown(data):
 @TPClient.on(TYPES.onError)
 def onError(exc):
     g_log.error(f'Error in TP Client event handler: {repr(exc)}')
+    pass
 
 def main():
     global TPClient, g_log, running
