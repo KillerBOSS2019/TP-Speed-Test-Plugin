@@ -163,10 +163,10 @@ def startSpeedTest(server):
     ### Clear Previous Results
     clear_results()
     
-    if not TPClient.choiceUpdateList[TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"]] == list(serverlist.keys()):
+    if not TPClient.choiceUpdateList[TP_PLUGIN_ACTIONS["Start Speedtest"]["data"]["SpeedtestServer"]["id"]] == list(serverlist.keys()):
         serverchoices = ["Best server (based on ping)"]
         serverchoices.extend(list(serverlist.keys()))
-        TPClient.stateUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
+        TPClient.stateUpdate(TP_PLUGIN_ACTIONS["Start Speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
 
     if server == "Best server (based on ping)":
         best_server = sptest.get_best_server()
