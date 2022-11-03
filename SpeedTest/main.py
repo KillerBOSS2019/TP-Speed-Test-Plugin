@@ -230,7 +230,7 @@ def onStart(data):
     servers = getServers()
     serverchoices = ["Best server (based on ping)"]
     serverchoices.extend(list(servers.keys()))
-    TPClient.choiceUpdate(TP_PLUGIN_ACTIONS["Start speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
+    TPClient.choiceUpdate(TP_PLUGIN_ACTIONS["Start Speedtest"]["data"]["SpeedtestServer"]["id"], serverchoices)
 
     # checking for update
     github_check = Tools.updateCheck("KillerBOSS2019", "TP-Speed-Test-Plugin")
@@ -268,7 +268,7 @@ def onSettingEvent(data):
 def onAction(data):
     g_log.debug(f"Action: {data}")
 
-    if data['actionId'] == TP_PLUGIN_ACTIONS["Start speedtest"]["id"]:
+    if data['actionId'] == TP_PLUGIN_ACTIONS["Start Speedtest"]["id"]:
         startSpeedTest(data['data'][0]['value'])
 
 # Shutdown handler
